@@ -1,3 +1,5 @@
+import { Button } from "flowbite-react";
+
 export default function About() {
   return (
     <div className='min-h-screen flex items-center justify-center'>
@@ -6,6 +8,7 @@ export default function About() {
           <h1 className='text-3xl font font-semibold text-center my-7'>
             About Sahand' Blog
           </h1>
+          <Button>Click me</Button>;
           <div className='text-md text-gray-500 flex flex-col gap-6'>
             <p>
               Welcome to Sahand's Blog! This blog was created by Sahand Ghavidel
