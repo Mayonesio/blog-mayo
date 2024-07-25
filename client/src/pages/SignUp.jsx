@@ -14,7 +14,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
-      return setErrorMessage('Please fill out all fields.');
+      return setErrorMessage('Rellena todos los campos.');
     }
     try {
       setLoading(true);
@@ -44,13 +44,12 @@ export default function SignUp() {
         <div className='flex-1'>
           <Link to='/' className='font-bold dark:text-white text-4xl'>
             <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-              Sahand's
+              Aqui va mi logo
             </span>
             Blog
           </Link>
           <p className='text-sm mt-5'>
-            This is a demo project. You can sign up with your email and password
-            or with Google.
+            Demo de blog para testear un CRUD hecho con MERN.
           </p>
         </div>
         {/* right */}
@@ -92,16 +91,16 @@ export default function SignUp() {
               {loading ? (
                 <>
                   <Spinner size='sm' />
-                  <span className='pl-3'>Loading...</span>
+                  <span className='pl-3'>Cargando...</span>
                 </>
               ) : (
-                'Sign Up'
+                'Registrate'
               )}
             </Button>
             <OAuth />
           </form>
           <div className='flex gap-2 text-sm mt-5'>
-            <span>Have an account?</span>
+            <span>¿No tienes una cuenta?</span>
             <Link to='/sign-in' className='text-blue-500'>
               Sign In
             </Link>
