@@ -67,7 +67,7 @@ export default function DashProfile() {
       },
       (error) => {
         setImageFileUploadError(
-          'Could not upload image (File must be less than 2MB)'
+          'No puedes subir eta imagen (debe ser menor a 2MB)'
         );
         setImageFileUploadProgress(null);
         setImageFile(null);
@@ -176,7 +176,7 @@ export default function DashProfile() {
             <CircularProgressbar
               value={imageFileUploadProgress || 0}
               text={`${imageFileUploadProgress}%`}
-              strokeWidth={5}
+              strokeWidth={3}
               styles={{
                 root: {
                   width: '100%',
