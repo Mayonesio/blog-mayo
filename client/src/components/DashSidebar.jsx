@@ -63,7 +63,7 @@ export default function DashSidebar() {
               labelColor='dark'
               as='div'
             >
-              Profile
+              Perfil
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
@@ -104,7 +104,7 @@ export default function DashSidebar() {
             className='cursor-pointer'
             onClick={handleSignout}
           >
-            Sign Out
+            Cerrar sesión
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
