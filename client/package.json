@@ -11,6 +11,14 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
+    "@tiptap/extension-color": "^2.5.8",
+    "@tiptap/extension-highlight": "^2.5.8",
+    "@tiptap/extension-list-item": "^2.5.8",
+    "@tiptap/extension-text-align": "^2.5.8",
+    "@tiptap/extension-text-style": "^2.5.8",
+    "@tiptap/pm": "^2.5.8",
+    "@tiptap/react": "^2.5.8",
+    "@tiptap/starter-kit": "^2.5.8",
     "firebase": "^10.12.4",
     "flowbite-react": "^0.10.1",
     "lodash": "^4.17.21",
@@ -32,6 +40,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "postcss": "^8.4.39",
+    "sass": "^1.77.8",
     "tailwindcss": "^3.4.6",
     "vite": "^5.3.1"
   }
