@@ -1,13 +1,13 @@
 import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react';
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
-// import {
-//   getDownloadURL,
-//   getStorage,
-//   ref,
-//   uploadBytesResumable,
-// } from 'firebase/storage';
-// import { app } from '../firebase';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from 'firebase/storage';
+import { app } from '../firebase';
 import { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -25,7 +25,7 @@ export default function CreatePost() {
   const handleUpdloadImage = async () => {
     try {
       if (!file) {
-        setImageUploadError('Please select an image');
+        setImageUploadError('Selecciona una imagen');
         return;
       }
       setImageUploadError(null);
@@ -41,7 +41,7 @@ export default function CreatePost() {
           setImageUploadProgress(progress.toFixed(0));
         },
         (error) => {
-          setImageUploadError('Image upload failed');
+          setImageUploadError('Subida fallida');
           setImageUploadProgress(null);
         },
         () => {
@@ -53,7 +53,7 @@ export default function CreatePost() {
         }
       );
     } catch (error) {
-      setImageUploadError('Image upload failed');
+      setImageUploadError('Subida fallida');
       setImageUploadProgress(null);
       console.log(error);
     }
@@ -79,17 +79,17 @@ export default function CreatePost() {
         navigate(`/post/${data.slug}`);
       }
     } catch (error) {
-      setPublishError('Something went wrong');
+      setPublishError('Algo ha salido');
     }
   };
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
-      <h1 className='text-center text-3xl my-7 font-semibold'>Create a post</h1>
+      <h1 className='text-center text-3xl my-7 font-semibold'>Crea una entrada</h1>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <TextInput
             type='text'
-            placeholder='Title'
+            placeholder='Título'
             required
             id='title'
             className='flex-1'
@@ -102,13 +102,13 @@ export default function CreatePost() {
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <option value='uncategorized'>Select a category</option>
+            <option value='uncategorized'>Selecciona una categoría</option>
             <option value='javascript'>JavaScript</option>
             <option value='reactjs'>React.js</option>
             <option value='nextjs'>Next.js</option>
           </Select>
         </div>
-        <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
+        <div className='flex gap-4 items-center justify-between border-1 border-teal-500 p-3'>
           <FileInput
             type='file'
             accept='image/*'
@@ -130,7 +130,7 @@ export default function CreatePost() {
                 />
               </div>
             ) : (
-              'Upload Image'
+              'Subir Imagen'
             )}
           </Button>
         </div>
@@ -144,7 +144,7 @@ export default function CreatePost() {
         )}
         <ReactQuill
           theme='snow'
-          placeholder='Write something...'
+          placeholder='Escribe algo...'
           className='h-72 mb-12'
           required
           onChange={(value) => {
@@ -152,7 +152,7 @@ export default function CreatePost() {
           }}
         />
         <Button type='submit' gradientDuoTone='purpleToPink'>
-          Publish
+          Publicar
         </Button>
         {publishError && (
           <Alert className='mt-5' color='failure'>
