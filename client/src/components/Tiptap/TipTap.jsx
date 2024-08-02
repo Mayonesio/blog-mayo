@@ -222,7 +222,7 @@ const TiptapEditor = () => {
         types: ['heading'],
       }),
     ],
-    content: '<p>Hello World! 🌍</p>',
+    content: '<p>Escribe aqui tu texto...</p>',
   })
 
   return (
