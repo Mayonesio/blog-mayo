@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Highlight from '@tiptap/extension-highlight'
 import TextAlign from '@tiptap/extension-text-align'
 import { EditorContent, useEditor } from '@tiptap/react'
@@ -212,8 +213,7 @@ const MenuBar = ({ editor }) => {
     </div>
   )
 }
-
-const TiptapEditor = () => {
+const TiptapEditor = ({ onChange }) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -223,7 +223,21 @@ const TiptapEditor = () => {
       }),
     ],
     content: '<p>Escribe aqui tu texto...</p>',
-  })
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      onChange(html);
+    },
+  });
+
+  useEffect(() => {
+    if (editor) {
+      editor.on('update', ({ editor }) => {
+        const htmlContent = editor.getHTML();
+        onChange(htmlContent);
+      });
+    }
+    return () => editor && editor.off('update');
+  }, [editor, onChange]);
 
   return (
     <div className="tiptap">

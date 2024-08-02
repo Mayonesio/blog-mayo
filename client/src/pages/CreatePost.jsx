@@ -5,7 +5,7 @@ import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
-import Tiptap from '../components/Tiptap/TipTap'; // Importa Tiptap
+import TiptapEditor from '../components/Tiptap/TipTap'; // Importa TiptapEditor
 
 export default function CreatePost() {
   const [file, setFile] = useState(null);
@@ -137,8 +137,8 @@ export default function CreatePost() {
             className='w-full h-72 object-cover'
           />
         )}
-        <Tiptap 
-          required onChange={(value) => setFormData({ ...formData, content: value })} /> {/* Añadir Tiptap */}
+        <TiptapEditor 
+          onChange={(value) => setFormData({ ...formData, content: value })} /> 
         <Button type='submit' gradientDuoTone='purpleToPink'>
           Publicar
         </Button>
