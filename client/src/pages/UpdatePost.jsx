@@ -1,17 +1,16 @@
 import { Alert, Button, FileInput, Select, TextInput } from 'flowbite-react';
-// import ReactQuill from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
-// import {
-//   getDownloadURL,
-//   getStorage,
-//   ref,
-//   uploadBytesResumable,
-// } from 'firebase/storage';
-// import { app } from '../firebase';
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from 'firebase/storage';
+import { app } from '../firebase';
 import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate, useParams } from 'react-router-dom';
+import TiptapEditor from '../components/Tiptap/TipTap'; // Importa TiptapEditor
 import { useSelector } from 'react-redux';
 
 export default function UpdatePost() {
@@ -23,7 +22,7 @@ export default function UpdatePost() {
   const { postId } = useParams();
 
   const navigate = useNavigate();
-    const { currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     try {
@@ -40,7 +39,6 @@ export default function UpdatePost() {
           setFormData(data.posts[0]);
         }
       };
-
       fetchPost();
     } catch (error) {
       console.log(error.message);
@@ -50,7 +48,7 @@ export default function UpdatePost() {
   const handleUpdloadImage = async () => {
     try {
       if (!file) {
-        setImageUploadError('Please select an image');
+        setImageUploadError('Selecciona una imagen');
         return;
       }
       setImageUploadError(null);
@@ -66,7 +64,7 @@ export default function UpdatePost() {
           setImageUploadProgress(progress.toFixed(0));
         },
         (error) => {
-          setImageUploadError('Image upload failed');
+          setImageUploadError('Subida fallida');
           setImageUploadProgress(null);
         },
         () => {
@@ -78,7 +76,7 @@ export default function UpdatePost() {
         }
       );
     } catch (error) {
-      setImageUploadError('Image upload failed');
+      setImageUploadError('Subida fallida');
       setImageUploadProgress(null);
       console.log(error);
     }
@@ -109,7 +107,7 @@ export default function UpdatePost() {
   };
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
-      <h1 className='text-center text-3xl my-7 font-semibold'>Update post</h1>
+      <h1 className='text-center text-3xl my-7 font-semibold'>Actualizar publicación</h1>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <TextInput
@@ -157,7 +155,7 @@ export default function UpdatePost() {
                 />
               </div>
             ) : (
-              'Upload Image'
+              'Subir Imagen'
             )}
           </Button>
         </div>
@@ -169,18 +167,10 @@ export default function UpdatePost() {
             className='w-full h-72 object-cover'
           />
         )}
-        <ReactQuill
-          theme='snow'
-          value={formData.content}
-          placeholder='Write something...'
-          className='h-72 mb-12'
-          required
-          onChange={(value) => {
-            setFormData({ ...formData, content: value });
-          }}
-        />
+        <TiptapEditor
+          onChange={(value) => setFormData({ ...formData, content: value })} />
         <Button type='submit' gradientDuoTone='purpleToPink'>
-          Update post
+          Actualizar publicación
         </Button>
         {publishError && (
           <Alert className='mt-5' color='failure'>
