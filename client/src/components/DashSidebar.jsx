@@ -51,7 +51,7 @@ export default function DashSidebar() {
                 icon={HiChartPie}
                 as='div'
               >
-                Dashboard
+                Menú
               </Sidebar.Item>
             </Link>
           )}
@@ -73,7 +73,7 @@ export default function DashSidebar() {
                 icon={HiDocumentText}
                 as='div'
               >
-                Publicaiones
+                Publicaciones
               </Sidebar.Item>
             </Link>
           )}

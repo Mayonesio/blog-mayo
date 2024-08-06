@@ -73,11 +73,11 @@ export const getposts = async (req, res, next) => {
 
 export const deletepost = async (req, res, next) => {
   if (!req.user.isAdmin || req.user.id !== req.params.userId) {
-    return next(errorHandler(403, 'You are not allowed to delete this post'));
+    return next(errorHandler(403, 'No puedes borrar esta publicación'));
   }
   try {
     await Post.findByIdAndDelete(req.params.postId);
-    res.status(200).json('The post has been deleted');
+    res.status(200).json('Publicación borrada');
   } catch (error) {
     next(error);
   }
@@ -85,7 +85,7 @@ export const deletepost = async (req, res, next) => {
 
 export const updatepost = async (req, res, next) => {
   if (!req.user.isAdmin || req.user.id !== req.params.userId) {
-    return next(errorHandler(403, 'You are not allowed to update this post'));
+    return next(errorHandler(403, 'No puedes actualizar esta publicación'));
   }
   try {
     const updatedPost = await Post.findByIdAndUpdate(
