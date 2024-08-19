@@ -12,7 +12,9 @@ export default function CommentSection({ postId }) {
   const [comments, setComments] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
+  
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment.length > 200) {
@@ -115,11 +117,11 @@ export default function CommentSection({ postId }) {
       {currentUser ? (
         <div className='flex items-center gap-1 my-5 text-gray-500 text-sm'>
           <p>Has iniciado sesión como:</p>
-          <img
+          {/* <img
             className='h-5 w-5 object-cover rounded-full'
             src={currentUser.profilePicture}
             alt=''
-          />
+          /> */}
           <Link
             to={'/dashboard?tab=profile'}
             className='text-xs text-cyan-600 hover:underline'
@@ -131,7 +133,7 @@ export default function CommentSection({ postId }) {
         <div className='text-sm text-teal-500 my-5 flex gap-1'>
           Tienes que iniciar sesión para comentar.
           <Link className='text-blue-500 hover:underline' to={'/sign-in'}>
-            Sign In
+          Iniciar sesión
           </Link>
         </div>
       )}
@@ -152,7 +154,7 @@ export default function CommentSection({ postId }) {
               Te quedan {200 - comment.length} caracteres.
             </p>
             <Button outline gradientDuoTone='purpleToBlue' type='submit'>
-              Iniciar sesión
+              Enviar
             </Button>
           </div>
           {commentError && (
