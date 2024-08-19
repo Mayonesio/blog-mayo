@@ -1,9 +1,12 @@
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales';
+import 'moment/locale/es';  // Importa el idioma español
 import { useEffect, useState } from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { Button, Textarea } from 'flowbite-react';
 import { set } from 'mongoose';
+
+
 
 export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [user, setUser] = useState({});
@@ -11,6 +14,9 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [editedContent, setEditedContent] = useState(comment.content);
   const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
+    moment.locale('es'); 
+    console.log('Idioma actual:', moment.locale());
+    console.log('Idiomas disponibles:', moment.locales()); 
     const getUser = async () => {
       try {
         const res = await fetch(`/api/user/${comment.userId}`);
@@ -49,7 +55,8 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
       console.log(error.message);
     }
   };
-  return (
+
+    return (
     <div className='flex p-4 border-b dark:border-gray-600 text-sm'>
       <div className='flex-shrink-0 mr-3'>
         <img
@@ -61,7 +68,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
       <div className='flex-1'>
         <div className='flex items-center mb-1'>
           <span className='font-bold mr-1 text-xs truncate'>
-            {user ? `@${user.username}` : 'anonymous user'}
+            {user ? `@${user.username}` : 'anónimo'}
           </span>
           <span className='text-gray-500 text-xs'>
             {moment(comment.createdAt).fromNow()}
@@ -81,7 +88,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                 gradientDuoTone='purpleToBlue'
                 onClick={handleSave}
               >
-                Save
+                Guardar
               </Button>
               <Button
                 type='button'
@@ -90,7 +97,7 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                 outline
                 onClick={() => setIsEditing(false)}
               >
-                Cancel
+                Cancelar
               </Button>
             </div>
           </>
@@ -123,14 +130,14 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
                       onClick={handleEdit}
                       className='text-gray-400 hover:text-blue-500'
                     >
-                      Edit
+                      Editar
                     </button>
                     <button
                       type='button'
                       onClick={() => onDelete(comment._id)}
                       className='text-gray-400 hover:text-red-500'
                     >
-                      Delete
+                      Borrar
                     </button>
                   </>
                 )}
