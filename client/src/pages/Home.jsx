@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import CallToAction from '../components/CallToAction';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
-
+import Slider from '../components/Slider/Slider';
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
@@ -16,6 +16,7 @@ export default function Home() {
   }, []);
   return (
     <div>
+      <Slider/>
 
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto '>
         <h1 className='text-3xl font-bold lg:text-6xl'>Welcome to my Blog</h1>

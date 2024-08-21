@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "image": "./images/1.jpg",
+      "title": "IMAGE SLIDER",
+      "type": "IRON MAN",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+    },
+    {
+      "id": 2,
+      "image": "./images/2.webp",
+      "title": "IMAGE SLIDER",
+      "type": "CAPTAIN AMERICA",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+    },
+    {
+      "id": 3,
+      "image": "./images/3.webp",
+      "title": "IMAGE SLIDER",
+      "type": "HULK",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+    },
+    {
+      "id": 4,
+      "image": "./images/4.jpg",
+      "title": "IMAGE SLIDER",
+      "type": "SPIDER-MAN",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+    }
+  ]
+  

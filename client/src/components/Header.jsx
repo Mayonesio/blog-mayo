@@ -49,7 +49,7 @@ export default function Header() {
   };
 
   return (
-
+    
     <Navbar className='container mx-auto flex justify-between max-h-[4.45rem] items-center px-4 md:px-6 lg:px-8 max-w-screen-xl'>
       <Link
         to='/'
@@ -58,7 +58,7 @@ export default function Header() {
         <div className="relative">
           
             <img
-              src="https://templatekit.jegtheme.com/homerun/wp-content/uploads/sites/284/2022/05/Homerun-logo-2G2WWT-1024x900.png"
+              src="../../../../public/logo.png"
               alt="Logo"
               className="max-h-40 object-contain relative bottom-[-30px] left-10"
             />
