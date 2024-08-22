@@ -13,11 +13,12 @@ import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
-export default function DashSidebar() {
+export default function DashSidebar({ onItemClick }) {
   const location = useLocation();
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const [tab, setTab] = useState('');
+
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get('tab');
@@ -25,6 +26,7 @@ export default function DashSidebar() {
       setTab(tabFromUrl);
     }
   }, [location.search]);
+
   const handleSignout = async () => {
     try {
       const res = await fetch('/api/user/signout', {
@@ -40,12 +42,13 @@ export default function DashSidebar() {
       console.log(error.message);
     }
   };
+
   return (
-    <Sidebar className='w-full md:w-56 h-full'>
+    <Sidebar className='w-full'>
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
           {currentUser && currentUser.isAdmin && (
-            <Link to='/dashboard?tab=dash'>
+            <Link to='/dashboard?tab=dash' onClick={onItemClick}>
               <Sidebar.Item
                 active={tab === 'dash' || !tab}
                 icon={HiChartPie}
@@ -55,7 +58,7 @@ export default function DashSidebar() {
               </Sidebar.Item>
             </Link>
           )}
-          <Link to='/dashboard?tab=profile'>
+          <Link to='/dashboard?tab=profile' onClick={onItemClick}>
             <Sidebar.Item
               active={tab === 'profile'}
               icon={HiUser}
@@ -67,7 +70,7 @@ export default function DashSidebar() {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-            <Link to='/dashboard?tab=posts'>
+            <Link to='/dashboard?tab=posts' onClick={onItemClick}>
               <Sidebar.Item
                 active={tab === 'posts'}
                 icon={HiDocumentText}
@@ -79,7 +82,7 @@ export default function DashSidebar() {
           )}
           {currentUser.isAdmin && (
             <>
-              <Link to='/dashboard?tab=users'>
+              <Link to='/dashboard?tab=users' onClick={onItemClick}>
                 <Sidebar.Item
                   active={tab === 'users'}
                   icon={HiOutlineUserGroup}
@@ -88,7 +91,7 @@ export default function DashSidebar() {
                   Usuarios
                 </Sidebar.Item>
               </Link>
-              <Link to='/dashboard?tab=comments'>
+              <Link to='/dashboard?tab=comments' onClick={onItemClick}>
                 <Sidebar.Item
                   active={tab === 'comments'}
                   icon={HiAnnotation}

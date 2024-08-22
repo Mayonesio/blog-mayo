@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
 import Slider from '../components/Slider/Slider';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
@@ -17,6 +18,7 @@ export default function Home() {
   }, []);
   return (
     <>
+    <Header/>
       <div>
         <Slider />
 

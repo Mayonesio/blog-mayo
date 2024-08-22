@@ -50,7 +50,7 @@ export default function Header() {
 
   return (
     
-    <Navbar className='container mx-auto flex justify-between min-h-[4.45rem] items-center px-4 md:px-6 lg:px-8 max-w-[100dvw] '>
+    <Navbar className='container mx-auto flex justify-between min-h-[4.45rem] items-center px-4 md:px-6 lg:px-8 max-w-[100dvw] fixed top-0 left-0 right-0 z-50'>
       <Link
         to='/'
         // className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'

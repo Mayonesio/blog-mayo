@@ -2,6 +2,7 @@ import { Button, Select, TextInput } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PostCard from '../components/PostCard';
+import Headerdashboard from '../components/Headerdashboard'
 
 export default function Search() {
   const [sidebarData, setSidebarData] = useState({
@@ -101,70 +102,81 @@ export default function Search() {
   };
 
   return (
-    <div className='flex flex-col md:flex-row'>
-      <div className='p-7 border-b md:border-r md:min-h-screen border-gray-500'>
-        <form className='flex flex-col gap-8 top-5' onSubmit={handleSubmit}>
-          <div className='flex  flex-col items-start gap-2'>
-            <label className='whitespace-nowrap font-semibold'>
-              Búsqueda:
-            </label>
-            <TextInput
-              placeholder='Search...'
-              id='searchTerm'
-              type='text'
-              value={sidebarData.searchTerm}
-              onChange={handleChange}
-              className='w-full'
-            />
+    <>
+      <Headerdashboard />
+      <div className="flex flex-col md:flex-row h-screen mt-[4.45rem]">
+        {/* Sidebar */}
+        <div className="w-full md:w-56 bg-gray-800 text-white md:fixed h-auto md:h-full p-7 border-b md:border-r border-gray-500">
+          <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
+            <div className="flex flex-col items-start gap-2">
+              <label className="whitespace-nowrap font-semibold">Búsqueda:</label>
+              <TextInput
+                placeholder="Search..."
+                id="searchTerm"
+                type="text"
+                value={sidebarData.searchTerm}
+                onChange={handleChange}
+                className="w-full"
+              />
+            </div>
+            <div className="flex flex-col items-start gap-2">
+              <label className="font-semibold">Ordenar:</label>
+              <Select
+                onChange={handleChange}
+                value={sidebarData.sort}
+                id="sort"
+                className="w-full"
+              >
+                <option value="desc">Recientes</option>
+                <option value="asc">Antiguos</option>
+              </Select>
+            </div>
+            <div className="flex flex-col items-start gap-2">
+              <label className="font-semibold">Categoría:</label>
+              <Select
+                onChange={handleChange}
+                value={sidebarData.category}
+                id="category"
+                className="w-full"
+              >
+                <option value="uncategorized">Descategorizado</option>
+                <option value="reactjs">React.js</option>
+                <option value="nextjs">Next.js</option>
+                <option value="javascript">JavaScript</option>
+              </Select>
+            </div>
+            <Button type="submit" outline gradientDuoTone="purpleToPink">
+              Aplicar filtros
+            </Button>
+          </form>
+        </div>
+
+        {/* Contenido Principal */}
+        <div className="flex-1 md:ml-56 overflow-y-auto">
+          <h1 className="text-3xl font-semibold border-b border-gray-500 p-3 mt-5">
+            Publicaciones encontradas:
+          </h1>
+          <div className="p-7 flex flex-wrap gap-4">
+            {!loading && posts.length === 0 && (
+              <p className="text-xl text-gray-500">
+                No se encuentran publicaciones.
+              </p>
+            )}
+            {loading && <p className="text-xl text-gray-500">Cargando...</p>}
+            {!loading &&
+              posts &&
+              posts.map((post) => <PostCard key={post._id} post={post} />)}
+            {showMore && (
+              <button
+                onClick={handleShowMore}
+                className="text-teal-500 text-lg hover:underline p-7 w-full"
+              >
+                Mostrar más
+              </button>
+            )}
           </div>
-          <div className='flex flex-col items-start gap-2'>
-            <label className='font-semibold'>Ordenar:</label>
-            <Select onChange={handleChange} value={sidebarData.sort} id='sort' className='w-full'>
-              <option value='desc'>Recientes</option>
-              <option value='asc'>Antiguos</option>
-            </Select>
-          </div>
-          <div className='flex flex-col items-start gap-2'>
-            <label className='font-semibold'>Categoría:</label>
-            <Select
-              onChange={handleChange}
-              value={sidebarData.category}
-              id='category'
-              className='w-full'
-            >
-              <option value='uncategorized'>Descategorizado</option>
-              <option value='reactjs'>React.js</option>
-              <option value='nextjs'>Next.js</option>
-              <option value='javascript'>JavaScript</option>
-            </Select>
-          </div>
-          <Button type='submit' outline gradientDuoTone='purpleToPink'>
-            Aplicar filtros
-          </Button>
-        </form>
-      </div>
-      <div className='w-full'>
-        <h1 className='text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 '>
-          Publicaciones encontradas:
-        </h1>
-        <div className='p-7 flex flex-wrap gap-4'>
-          {!loading && posts.length === 0 && (
-            <p className='text-xl text-gray-500'>No se encuentran publicaciones.</p>
-          )}
-          {loading && <p className='text-xl text-gray-500'>Cargando...</p>}
-          {!loading &&
-            posts &&
-            posts.map((post) => <PostCard key={post._id} post={post} />)}
-          {showMore && (
-            <button
-              onClick={handleShowMore}
-              className='text-teal-500 text-lg hover:underline p-7 w-full'
-            >
-              Mostrar más
-            </button>
-          )}
         </div>
       </div>
-    </div>
+    </>
   );
 }

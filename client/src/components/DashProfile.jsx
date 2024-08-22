@@ -21,6 +21,7 @@ import {
 } from '../redux/user/userSlice';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import Headerdashboard from '../components/Headerdashboard'
 
 export default function DashProfile() {
   const { currentUser, error, loading } = useSelector((state) => state.user);
@@ -158,6 +159,8 @@ export default function DashProfile() {
   };
 
   return (
+    <>
+    {/* <Headerdashboard/> */}
     <div className='max-w-lg mx-auto p-3 w-full'>
       <h1 className='my-7 text-center font-semibold text-3xl'>Perfil</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
@@ -294,5 +297,6 @@ export default function DashProfile() {
         </Modal.Body>
       </Modal>
     </div>
+    </>
   );
 }
