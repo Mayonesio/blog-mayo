@@ -50,17 +50,17 @@ export default function Header() {
 
   return (
     
-    <Navbar className='container mx-auto flex justify-between max-h-[4.45rem] items-center px-4 md:px-6 lg:px-8 max-w-screen-xl'>
+    <Navbar className='container mx-auto flex justify-between min-h-[4.45rem] items-center px-4 md:px-6 lg:px-8 max-w-[100dvw]'>
       <Link
         to='/'
-        className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
+        // className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
         <div className="relative">
           
             <img
               src="../../../../public/logo.png"
               alt="Logo"
-              className="max-h-40 object-contain relative bottom-[-30px] left-10"
+              className="max-h-40 object-contain relative top-10  left-10 sm:h-0"
             />
           
         </div>

@@ -8,6 +8,7 @@ import {
   signInFailure,
 } from '../redux/user/userSlice';
 import OAuth from '../components/OAuth';
+// import Signin from '../components/Signin/Signin';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -44,9 +45,10 @@ export default function SignIn() {
   };
   return (
     <div className='min-h-screen mt-20'>
-      <div className='flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5'>
+      {/* <Signin/> */}
+      <div className='h-full flex items-center justify-center p-4'>
         {/* left */}
-        <div className='flex-1'>
+        {/* <div className='flex-1'>
           <Link to='/' className='font-bold dark:text-white text-4xl'>
             <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
               Mayo
@@ -56,11 +58,12 @@ export default function SignIn() {
           <p className='text-sm mt-5'>
             Blog con CRUD y hecho en MERN.
           </p>
-        </div>
+        </div> */}
         {/* right */}
 
-        <div className='flex-1'>
-          <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
+        <div className='bg-white bg-opacity-10 backdrop-lg rounded-3xl p-8 shadow-2xl w-full max-w-md '>
+        <h2 class="text-4xl font-extrabold text-white mb-6 text-center animate-pulse">Inicio de sesión</h2>
+          <form className='flex flex-col gap-4 space-y-6' onSubmit={handleSubmit}>
             <div>
               <Label value='Tu correo' />
               <TextInput
