@@ -58,7 +58,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="slider relative w-full h-screen overflow-hidden" ref={sliderRef}>
+    <div className="slider relative w-full h-screen overflow-hidden mt-0" ref={sliderRef}>
       <div className="list" ref={listRef}>
         {slides.map((slide) => (
           <div className="item" key={slide.id}>

@@ -103,10 +103,10 @@ export default function Search() {
   return (
     <div className='flex flex-col md:flex-row'>
       <div className='p-7 border-b md:border-r md:min-h-screen border-gray-500'>
-        <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
-          <div className='flex   items-center gap-2'>
+        <form className='flex flex-col gap-8 top-5' onSubmit={handleSubmit}>
+          <div className='flex  flex-col items-start gap-2'>
             <label className='whitespace-nowrap font-semibold'>
-              Search Term:
+              Búsqueda:
             </label>
             <TextInput
               placeholder='Search...'
@@ -114,42 +114,44 @@ export default function Search() {
               type='text'
               value={sidebarData.searchTerm}
               onChange={handleChange}
+              className='w-full'
             />
           </div>
-          <div className='flex items-center gap-2'>
-            <label className='font-semibold'>Sort:</label>
-            <Select onChange={handleChange} value={sidebarData.sort} id='sort'>
-              <option value='desc'>Latest</option>
-              <option value='asc'>Oldest</option>
+          <div className='flex flex-col items-start gap-2'>
+            <label className='font-semibold'>Ordenar:</label>
+            <Select onChange={handleChange} value={sidebarData.sort} id='sort' className='w-full'>
+              <option value='desc'>Recientes</option>
+              <option value='asc'>Antiguos</option>
             </Select>
           </div>
-          <div className='flex items-center gap-2'>
-            <label className='font-semibold'>Category:</label>
+          <div className='flex flex-col items-start gap-2'>
+            <label className='font-semibold'>Categoría:</label>
             <Select
               onChange={handleChange}
               value={sidebarData.category}
               id='category'
+              className='w-full'
             >
-              <option value='uncategorized'>Uncategorized</option>
+              <option value='uncategorized'>Descategorizado</option>
               <option value='reactjs'>React.js</option>
               <option value='nextjs'>Next.js</option>
               <option value='javascript'>JavaScript</option>
             </Select>
           </div>
           <Button type='submit' outline gradientDuoTone='purpleToPink'>
-            Apply Filters
+            Aplicar filtros
           </Button>
         </form>
       </div>
       <div className='w-full'>
         <h1 className='text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 '>
-          Posts results:
+          Publicaciones encontradas:
         </h1>
         <div className='p-7 flex flex-wrap gap-4'>
           {!loading && posts.length === 0 && (
-            <p className='text-xl text-gray-500'>No posts found.</p>
+            <p className='text-xl text-gray-500'>No se encuentran publicaciones.</p>
           )}
-          {loading && <p className='text-xl text-gray-500'>Loading...</p>}
+          {loading && <p className='text-xl text-gray-500'>Cargando...</p>}
           {!loading &&
             posts &&
             posts.map((post) => <PostCard key={post._id} post={post} />)}
@@ -158,7 +160,7 @@ export default function Search() {
               onClick={handleShowMore}
               className='text-teal-500 text-lg hover:underline p-7 w-full'
             >
-              Show More
+              Mostrar más
             </button>
           )}
         </div>

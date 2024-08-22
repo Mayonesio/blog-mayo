@@ -55,15 +55,15 @@ export default function Header() {
         to='/'
         // className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
       >
-        <div className="relative">
+        {/* <div className="relative">
           
             <img
               src="../../../../public/logo.png"
               alt="Logo"
-              className="max-h-40 object-contain relative top-10  left-10 sm:h-0"
+              className="max-h-40 object-contain relative top-10 left-10"
             />
           
-        </div>
+        </div> */}
       </Link>
       <form onSubmit={handleSubmit}>
         <TextInput
