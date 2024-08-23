@@ -7,6 +7,8 @@ import DashUsers from '../components/DashUsers';
 import DashComments from '../components/DashComments';
 import DashboardComp from '../components/DashboardComp';
 import Headerdashboard from '../components/Headerdashboard';
+import Switcharrow from '../components/Switcharrow';
+import { Button } from 'flowbite-react';
 
 export default function Dashboard() {
   const location = useLocation();
@@ -32,40 +34,34 @@ export default function Dashboard() {
   return (
     <>
       <Headerdashboard />
-      <div className="flex flex-col md:flex-row h-screen mt-[4.45rem] relative">
-        {/* Botón para mostrar/ocultar el Sidebar en móviles */}
-        <button
-          className={`md:hidden p-4 bg-gray-800 text-white fixed top-[4.45rem] ${
-            isSidebarOpen ? 'left-56' : 'left-0'
-          } transform -translate-x-1/2 z-50 transition-transform duration-300`}
-          onClick={handleSidebarToggle}
-          style={{ borderRadius: '0 4px 4px 0', width: '2.5rem', height: '2.5rem' }}
-        >
-          {isSidebarOpen ? '<<' : '>>'}
-        </button>
+      <div className="flex flex-col md:flex-row h-screen mt-[4.45rem]">
 
-        {/* Sidebar */}
-        <div
-          className={`bg-gray-800 text-white fixed md:static h-full z-40 transition-transform duration-300 transform ${
-            isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        {/* Switcharrow solo visible en dispositivos pequeños */}
+        <div className={`md:hidden fixed top-[3.45rem] z-50 p-6 h-2 w-auto ${isSidebarOpen ? 'right-0' : 'left-0'
+          } `}>
+          <Switcharrow isChecked={isSidebarOpen} onToggle={handleSidebarToggle} />
+        </div>
+
+      {/* Sidebar */}
+      <div
+        className={`w-full bg-gray-800 text-white md:fixed  h-screen overflow-hidden z-40 transition-transform duration-300 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
           } md:w-56 w-64`}
-        >
-          <DashSidebar onItemClick={handleSidebarItemClick} />
-        </div>
-
-        {/* Contenido principal scrollable */}
-        <div
-          className={`flex-1 p-6 overflow-y-auto transition-all duration-300 ${
-            isSidebarOpen ? 'ml-0' : 'md:ml-56'
-          }`}
-        >
-          {tab === 'profile' && <DashProfile />}
-          {tab === 'posts' && <DashPosts />}
-          {tab === 'users' && <DashUsers />}
-          {tab === 'comments' && <DashComments />}
-          {tab === 'dash' && <DashboardComp />}
-        </div>
+      >
+        <DashSidebar onItemClick={handleSidebarItemClick} />
       </div>
+
+      {/* Contenido principal scrollable */}
+      <div
+        className={`flex-1 p-6 transition-all overflow-scroll duration-300 fixed md:relative w-[100dvw] ${isSidebarOpen ? 'ml-0' : 'md:ml-56'
+          }`}
+      >
+        {tab === 'profile' && <DashProfile />}
+        {tab === 'posts' && <DashPosts />}
+        {tab === 'users' && <DashUsers />}
+        {tab === 'comments' && <DashComments />}
+        {tab === 'dash' && <DashboardComp />}
+      </div>
+    </div >
     </>
   );
 }
