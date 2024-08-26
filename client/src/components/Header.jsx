@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useEffect, useState } from 'react';
+import DarkModeSwitch from '../components/DarkModeSwitch/DarkModeSwitch';
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -79,20 +80,23 @@ export default function Header() {
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>
-        <Button
+        {/* <Button
           className='w-12 h-10 hidden sm:inline'
           color='gray'
           pill
           onClick={() => dispatch(toggleTheme())}
         >
           {theme === 'light' ? <FaSun /> : <FaMoon />}
-        </Button>
+        </Button> */}
+
+        <DarkModeSwitch />
+
         {currentUser ? (
           <Dropdown
             arrowIcon={false}
             inline
             label={
-              <Avatar alt='user' img={currentUser.profilePicture} rounded />
+              <Avatar alt='user' img={currentUser.profilePicture} />
             }
           >
             <Dropdown.Header>
