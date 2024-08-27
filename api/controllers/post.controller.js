@@ -1,5 +1,6 @@
 import Post from '../models/post.model.js';
 import { errorHandler } from '../utils/error.js';
+import { convert } from 'html-to-text';
 
 export const create = async (req, res, next) => {
   if (!req.user.isAdmin) {
@@ -8,16 +9,23 @@ export const create = async (req, res, next) => {
   if (!req.body.title || !req.body.content) {
     return next(errorHandler(400, 'Rellena todos los campos requeridos'));
   }
+
+  // Convertir HTML a texto
+  const plainTextContent = convert(req.body.content);
+
   const slug = req.body.title
     .split(' ')
     .join('-')
     .toLowerCase()
     .replace(/[^a-zA-Z0-9-]/g, '');
+  
   const newPost = new Post({
     ...req.body,
+    content: plainTextContent, // Guardar el contenido como texto plano
     slug,
     userId: req.user.id,
   });
+
   try {
     const savedPost = await newPost.save();
     res.status(201).json(savedPost);
@@ -25,6 +33,7 @@ export const create = async (req, res, next) => {
     next(error);
   }
 };
+
 
 export const getposts = async (req, res, next) => {
   try {

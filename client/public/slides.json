@@ -26,6 +26,20 @@
       "title": "IMAGE SLIDER",
       "type": "SPIDER-MAN",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+    },
+    {
+      "id": 5,
+      "image": "./images/5.jpg",
+      "title": "IMAGE SLIDER",
+      "type": "SPIDER-MAN",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+    },
+    {
+      "id": 6,
+      "image": "./images/6.png",
+      "title": "IMAGE SLIDER",
+      "type": "SPIDER-MAN",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
     }
   ]
   

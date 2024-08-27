@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import CallToAction from '../components/CallToAction';
+// import CallToAction from '../components/CallToAction';
 import { useEffect, useState } from 'react';
-import PostCard from '../components/PostCard';
+// import PostCard from '../components/PostCard';
 import Slider from '../components/Slider/Slider';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import BlogLayout from '../components/BlogLayout.jsx';
+import PostCard from '../components/PostCard.jsx';
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
@@ -45,7 +46,7 @@ export default function Home() {
                 to={'/search'}
                 className='text-lg text-teal-500 hover:underline text-center'
               >
-                View all posts
+                Ver todas las publicaciones
               </Link>
             </div>
           )}

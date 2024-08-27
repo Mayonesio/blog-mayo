@@ -121,7 +121,7 @@ export default function DashboardComp() {
         </div>
       </div>
       <div className='flex flex-wrap gap-4 py-3 mx-auto justify-center'>
-        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
+        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-[#2a142b]'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
             <h1 className='text-center p-2'>Usuarios recientes</h1>
             <Button outline gradientDuoTone='purpleToPink'>
@@ -136,7 +136,7 @@ export default function DashboardComp() {
             {users &&
               users.map((user) => (
                 <Table.Body key={user._id} className='divide-y'>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-[#2a142b]'>
                     <Table.Cell>
                       <img
                         src={user.profilePicture}
@@ -150,7 +150,7 @@ export default function DashboardComp() {
               ))}
           </Table>
         </div>
-        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
+        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-[#2a142b]'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
             <h1 className='text-center p-2'>Comentarios recientes</h1>
             <Button outline gradientDuoTone='purpleToPink'>
@@ -165,7 +165,7 @@ export default function DashboardComp() {
             {comments &&
               comments.map((comment) => (
                 <Table.Body key={comment._id} className='divide-y'>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-[#2a142b]'>
                     <Table.Cell className='w-96'>
                         <p className='line-clamp-2'>{comment.content}</p>
                     </Table.Cell>
@@ -175,7 +175,7 @@ export default function DashboardComp() {
               ))}
           </Table>
         </div>
-        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
+        <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-[#2a142b]'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
             <h1 className='text-center p-2'>Publicaciones recientes</h1>
             <Button outline gradientDuoTone='purpleToPink'>
@@ -191,7 +191,7 @@ export default function DashboardComp() {
             {posts &&
               posts.map((post) => (
                 <Table.Body key={post._id} className='divide-y'>
-                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                  <Table.Row className='bg-white dark:border-gray-700 dark:bg-[#2a142b]'>
                     <Table.Cell>
                       <img
                         src={post.image}

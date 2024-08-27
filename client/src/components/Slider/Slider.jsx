@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './slider.scss';
-
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Slider = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -68,7 +68,11 @@ const Slider = () => {
               <div className="type">{slide.type}</div>
               <div className="description">{slide.description}</div>
               <div className="button">
-                <button>SEE MORE</button>
+                <Link
+                to='/search'
+                >                
+                <button className=''>Ver publicaciones</button>
+                </Link>
               </div>
             </div>
           </div>

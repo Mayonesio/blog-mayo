@@ -33,6 +33,7 @@
 //   border-radius: 5px;
 // }
 
+
 .slider {
   height: 100vh;
   margin-top: -50px;
@@ -67,6 +68,9 @@
   text-shadow: 0 5px 10px #0004;
 }
 
+.slider .list .item .content .button {
+color:#2a142b;
+}
 .slider .list .item .content .title {
   font-size: 5rem;
   font-weight: 700;

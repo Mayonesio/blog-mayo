@@ -4,7 +4,7 @@ import Header from '../components/Header'
 export default function About() {
   return (
     <>
-      <section className="pt-10 overflow-hidden bg-gray-50 dark:bg-gray-800 md:pt-0 sm:pt-16 2xl:pt-16">
+      <section className="pt-10 overflow-hidden bg-gray-50 dark:bg-[#2a142b] md:pt-0 sm:pt-16 2xl:pt-16">
         <Header />
         <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
