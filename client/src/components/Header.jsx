@@ -47,7 +47,7 @@ export default function Header() {
     navigate(`/search?${searchQuery}`);
   };
 
-  const logoSrc = theme === 'light' ? '../../../../public/logo.png' : '../../../../public/logoBlanco.png';
+  const logoSrc = theme === 'light' ? '/logo.png' : '../../../../public/logoBlanco.png';
 
 
   return (

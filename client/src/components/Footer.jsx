@@ -12,7 +12,7 @@ export default function FooterCom() {
               className='self-center whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white'
             >
                       <img
-              src="../../../../public/footer-logo.png"
+              src="/footer-logo.png"
               alt="Logo"
               className="h-[4dvh] object-contain relative"
             />

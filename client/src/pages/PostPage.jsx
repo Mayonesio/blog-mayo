@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import CallToAction from '../components/CallToAction';
 import CommentSection from '../components/CommentSection';
-import PostCard from '../components/PostCard';
+import PostCard from '../components/PostCard/PostCard';
 import Header from '../components/Header';
 
 export default function PostPage() {

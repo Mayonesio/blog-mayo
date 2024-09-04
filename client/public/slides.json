@@ -8,14 +8,14 @@
     },
     {
       "id": 2,
-      "image": "./images/2.webp",
+      "image": "./images/2.jpg",
       "title": "IMAGE SLIDER",
       "type": "CAPTAIN AMERICA",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
     },
     {
       "id": 3,
-      "image": "./images/3.webp",
+      "image": "./images/3.jpg",
       "title": "IMAGE SLIDER",
       "type": "HULK",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
@@ -36,7 +36,14 @@
     },
     {
       "id": 6,
-      "image": "./images/6.png",
+      "image": "./images/6.jpg",
+      "title": "IMAGE SLIDER",
+      "type": "SPIDER-MAN",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+    },
+    {
+      "id": 7,
+      "image": "./images/7.jpg",
       "title": "IMAGE SLIDER",
       "type": "SPIDER-MAN",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."

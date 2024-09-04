@@ -6,7 +6,7 @@ import Slider from '../components/Slider/Slider';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import BlogLayout from '../components/BlogLayout.jsx';
-import PostCard from '../components/PostCard.jsx';
+import PostCard from '../components/PostCard/PostCard.jsx';
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
