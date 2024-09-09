@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 import Slider from '../components/Slider/Slider';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import BlogLayout from '../components/BlogLayout.jsx';
+import BlogMasonry from '../components/BlogMasonry.jsx';
 import PostCard from '../components/PostCard/PostCard.jsx';
+import AboutMe from '../components/AboutMe.jsx';
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
@@ -23,17 +24,16 @@ export default function Home() {
       <Header />
       <div>
         <Slider />
-        {posts.map((post) => (
-          <BlogLayout key={post._id} post={post} />
-        ))}
 
+        <BlogMasonry posts={posts} />
 
 
         {/* <div className='p-3 bg-amber-100 dark:bg-slate-700'>
           <CallToAction />
         </div> */}
 
-        <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7'>
+
+        {/* <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 py-7'>
           {posts && posts.length > 0 && (
             <div className='flex flex-col gap-6'>
               <h2 className='text-2xl font-semibold text-center'>Últimas publicaciones</h2>
@@ -50,7 +50,7 @@ export default function Home() {
               </Link>
             </div>
           )}
-        </div>
+        </div> */}
       </div >
       <Footer />
     </>

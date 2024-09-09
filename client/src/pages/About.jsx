@@ -1,12 +1,14 @@
 import { Button } from "flowbite-react";
 import Footer from '../components/Footer';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import AboutMe from "../components/AboutMe";
 export default function About() {
   return (
     <>
       <section className="pt-10 overflow-hidden bg-gray-50 dark:bg-[#2a142b] md:pt-0 sm:pt-16 2xl:pt-16">
         <Header />
-        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <AboutMe/>
+        {/* <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
 
             <div>
@@ -36,7 +38,7 @@ export default function About() {
             </div>
 
           </div>
-        </div>
+        </div> */}
       </section>
 
       <Footer />
