@@ -2,9 +2,9 @@
     {
       "id": 1,
       "image": "./images/1.jpg",
-      "title": "IMAGE SLIDER",
-      "type": "IRON MAN",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+      "title": "CE - OPEN",
+      "type": "2023",
+      "description": "Campeonato de España Open temporada 2023 - 2024"
     },
     {
       "id": 2,
@@ -16,9 +16,9 @@
     {
       "id": 3,
       "image": "./images/3.jpg",
-      "title": "IMAGE SLIDER",
-      "type": "HULK",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+      "title": "HATÑO NUEVO",
+      "type": "2022",
+      "description": "Hat en Pozo cañada albacete en invierno"
     },
     {
       "id": 4,
@@ -44,9 +44,9 @@
     {
       "id": 7,
       "image": "./images/7.jpg",
-      "title": "IMAGE SLIDER",
-      "type": "SPIDER-MAN",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+      "title": "CALLAFEL ARENA",
+      "type": "2021",
+      "description": "Campeonato mixto fun en callafel, post-pandemia."
     }
   ]
   
