@@ -3,8 +3,12 @@ import mongoose from 'mongoose';
 const postSchema = new mongoose.Schema(
   {
     userId: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId, // Especificar el tipo como ObjectId para la referencia
+      ref: 'User', // Esto permite hacer la referencia a la colección de 'User'
       required: true,
+    },
+    author: {
+      type: String,
     },
     content: {
       type: String,

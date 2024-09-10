@@ -104,7 +104,7 @@ export default function Search() {
   return (
     <>
       <Headerdashboard />
-      <div className="flex flex-col md:flex-row h-screen mt-[4.45rem]">
+      <div className="flex flex-col md:flex-row min-h-screen mt-[4.45rem]">
         {/* Sidebar */}
         <div className="w-full md:w-56 bg-gray-800 text-white md:fixed h-auto md:h-full p-7 border-b md:border-r border-gray-500">
           <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
@@ -152,7 +152,7 @@ export default function Search() {
         </div>
 
         {/* Contenido Principal */}
-        <div className="flex-1 md:ml-56 overflow-y-auto">
+        <div className="flex-1 md:ml-56 overflow-y-scroll">
           <h1 className="text-3xl font-semibold border-b border-gray-500 p-3 mt-5">
             Publicaciones encontradas:
           </h1>

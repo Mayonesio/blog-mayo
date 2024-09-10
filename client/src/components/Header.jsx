@@ -1,10 +1,11 @@
 import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AiOutlineSearch } from 'react-icons/ai';
+// import { AiOutlineSearch } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useEffect, useState } from 'react';
 import DarkModeSwitch from '../components/DarkModeSwitch/DarkModeSwitch';
+
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -64,28 +65,21 @@ export default function Header() {
           />
         </div>
       </Link>
-      <form onSubmit={handleSubmit}>
-        <TextInput
-          type='text'
-          placeholder='Search...'
-          rightIcon={AiOutlineSearch}
-          className='hidden lg:inline'
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </form>
-      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+      {/* <form onSubmit={handleSubmit}>
+          <TextInput
+            type='text'
+            placeholder='Buscar...'
+            rightIcon={AiOutlineSearch}
+            className='hidden lg:inline'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </form> */}
+
+      {/* <Button className='w-12 h-10 lg:hidden' color='gray' pill>
         <AiOutlineSearch />
-      </Button>
-      <div className='flex gap-2 md:order-2'>
-        {/* <Button
-          className='w-12 h-10 hidden sm:inline'
-          color='gray'
-          pill
-          onClick={() => dispatch(toggleTheme())}
-        >
-          {theme === 'light' ? <FaSun /> : <FaMoon />}
-        </Button> */}
+      </Button> */}
+      <div className='flex gap-2 items-center md:order-2'>
 
         <DarkModeSwitch />
 
@@ -116,17 +110,18 @@ export default function Header() {
             </Button>
           </Link>
         )}
+
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
         <Navbar.Link active={path === '/'} as={'div'}>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Inicio</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/about'} as={'div'}>
-          <Link to='/about'>About</Link>
+          <Link to='/about'>Sobre mi</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === '/projects'} as={'div'}>
-          <Link to='/projects'>Projects</Link>
+        <Navbar.Link active={path === '/search'} as={'div'}>
+          <Link to='/search'>Publicaciones</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

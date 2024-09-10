@@ -77,7 +77,7 @@ export default function Header() {
       <Button className='w-12 h-10 lg:hidden' color='gray' pill>
         <AiOutlineSearch />
       </Button>
-      <div className='flex gap-2 md:order-2'>
+      <div className='flex gap-2 items-center md:order-2'>
         {/* <Button
           className='w-12 h-10 hidden sm:inline'
           color='gray'
@@ -119,13 +119,13 @@ export default function Header() {
       </div>
       <Navbar.Collapse>
         <Navbar.Link active={path === '/'} as={'div'}>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Inicio</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/about'} as={'div'}>
-          <Link to='/about'>About</Link>
+          <Link to='/about'>Sobre mi</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === '/projects'} as={'div'}>
-          <Link to='/projects'>Projects</Link>
+        <Navbar.Link active={path === '/search'} as={'div'}>
+          <Link to='/search'>Publicaciones</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

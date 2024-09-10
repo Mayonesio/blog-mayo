@@ -6,7 +6,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
 import TiptapEditor from '../components/Tiptap/TipTap'; // Importa TiptapEditor
-import Header from '../components/Header'
+import Header from '../components/Header';
 
 export default function CreatePost() {
   const [file, setFile] = useState(null);
@@ -17,17 +17,42 @@ export default function CreatePost() {
 
   const navigate = useNavigate();
 
+  // Validar el archivo antes de cargarlo
+  const validateFile = (file) => {
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    const maxSize = 2 * 1024 * 1024; // 2 MB
+
+    if (!allowedTypes.includes(file.type)) {
+      return 'Formato de archivo no permitido. Solo se permiten imágenes JPEG y PNG.';
+    }
+
+    if (file.size > maxSize) {
+      return 'El archivo es demasiado grande. El tamaño máximo permitido es 2 MB.';
+    }
+
+    return null;
+  };
+
   const handleUploadImage = async () => {
     try {
       if (!file) {
         setImageUploadError('Selecciona una imagen');
         return;
       }
+
+      // Validar el archivo antes de intentar subirlo
+      const validationError = validateFile(file);
+      if (validationError) {
+        setImageUploadError(validationError);
+        return;
+      }
+
       setImageUploadError(null);
       const storage = getStorage(app);
       const fileName = new Date().getTime() + '-' + file.name;
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, file);
+
       uploadTask.on(
         'state_changed',
         (snapshot) => {
@@ -35,7 +60,27 @@ export default function CreatePost() {
           setImageUploadProgress(progress.toFixed(0));
         },
         (error) => {
-          setImageUploadError('Subida fallida');
+          console.error('Error de carga:', error); // Imprime el error completo
+          let errorMessage = 'Error desconocido';
+          if (error.code) {
+            switch (error.code) {
+              case 'storage/unauthorized':
+                errorMessage = 'No tienes permiso para acceder al recurso.';
+                break;
+              case 'storage/canceled':
+                errorMessage = 'La subida fue cancelada.';
+                break;
+              case 'storage/unknown':
+                errorMessage = 'Se produjo un error desconocido.';
+                break;
+              case 'storage/failed-precondition': // Error de precondición fallida
+                errorMessage = 'El archivo no cumple con las condiciones necesarias.';
+                break;
+              default:
+                errorMessage = `Error: ${error.message}`;
+            }
+          }
+          setImageUploadError(`Error de subida: ${errorMessage}`);
           setImageUploadProgress(null);
         },
         () => {
@@ -80,7 +125,7 @@ export default function CreatePost() {
 
   return (
     <>
-        <Header />
+      <Header />
       <div className='p-3 max-w-3xl mx-auto min-h-screen'>
         <h1 className='text-center text-3xl my-7 font-semibold'>Crea una entrada</h1>
         <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
@@ -101,9 +146,9 @@ export default function CreatePost() {
               }
             >
               <option value='uncategorized'>Selecciona una categoría</option>
-              <option value='javascript'>JavaScript</option>
-              <option value='reactjs'>React.js</option>
-              <option value='nextjs'>Next.js</option>
+              <option value='Entrenamientos'>Entrenamientos</option>
+              <option value='Consejos'>Recomendaciones</option>
+              <option value='Reglamento'>Reglas Ultimate</option>
             </Select>
           </div>
           <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
@@ -141,7 +186,8 @@ export default function CreatePost() {
             />
           )}
           <TiptapEditor
-            onChange={(value) => setFormData({ ...formData, content: value })} />
+            onChange={(value) => setFormData({ ...formData, content: value })}
+          />
           <Button type='submit' gradientDuoTone='purpleToPink'>
             Publicar
           </Button>
