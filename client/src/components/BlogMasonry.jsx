@@ -1,25 +1,38 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Pagination from './Pagination';
 
 function BlogMasonry({ posts }) {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(9);
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const totalPages = Math.ceil(posts.length / postsPerPage);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
     if (!posts || posts.length === 0) {
-        return <div>Loading...</div>; // o un mensaje de error
+        return <div>Loading...</div>;
     }
 
     return (
         <section className="py-[120px]">
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {posts.map((post, index) => (
+                    {currentPosts.map((post, index) => (
                         <div key={index} className="blog-listing bg-white overflow-hidden mb-8">
-                            <div className="relative blog-image bg-gray-400 overflow-hidden">
-                                <Link to={`/post/${post.slug}`}>
-                                    <img
-                                        src={post.image}
-                                        alt={post.title}
-                                        className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-110 hover:opacity-50"
-                                    />
-                                </Link>
-                            </div>
+                            <Link to={`/post/${post.slug}`}>
+                                <img
+                                    src={post.image}
+                                    alt={post.title}
+                                    className="w-full h-64 object-cover transform transition-transform duration-300 hover:scale-110 hover:opacity-50"
+                                />
+                            </Link>
                             <div className="p-4">
                                 <div className="blog-date text-gray-500 text-xs tracking-widest uppercase pt-6">
                                     Publicado por{" "}
@@ -59,21 +72,11 @@ function BlogMasonry({ posts }) {
                 </div>
 
                 {/* Pagination */}
-                <div className="flex justify-center mt-8">
-                    <div className="pagination flex space-x-2">
-                        <a href="#" className="text-gray-500 hover:text-teal-500">
-                            <img src="/images/arrow-pre-small.png" alt="Prev" />
-                        </a>
-                        <a href="#" className="text-gray-500 hover:text-teal-500">1</a>
-                        <a href="#" className="text-gray-500 hover:text-teal-500">2</a>
-                        <a href="#" className="text-teal-500 font-bold">3</a>
-                        <a href="#" className="text-gray-500 hover:text-teal-500">4</a>
-                        <a href="#" className="text-gray-500 hover:text-teal-500">5</a>
-                        <a href="#" className="text-gray-500 hover:text-teal-500">
-                            <img src="/images/arrow-next-small.png" alt="Next" />
-                        </a>
-                    </div>
-                </div>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                />
             </div>
         </section>
     );

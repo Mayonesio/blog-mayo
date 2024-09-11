@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './slider.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import ButtonSlide from '../../components/ButtonSlide/ButtonSlide.jsx';
 const Slider = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);

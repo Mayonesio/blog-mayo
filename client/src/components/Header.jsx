@@ -113,15 +113,15 @@ export default function Header() {
 
         <Navbar.Toggle />
       </div>
-      <Navbar.Collapse>
-        <Navbar.Link active={path === '/'} as={'div'}>
-          <Link to='/'>Inicio</Link>
+      <Navbar.Collapse className='uppercase'>
+        <Navbar.Link  active={path === '/'} as={'div'}>
+          <Link className=' hover:text-[#ec463a]' to='/'>Inicio</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === '/about'} as={'div'}>
-          <Link to='/about'>Sobre mi</Link>
+        <Navbar.Link  active={path === '/about'} as={'div'}>
+          <Link  className=' hover:text-[#ec463a]' to='/about'>Sobre mi</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/search'} as={'div'}>
-          <Link to='/search'>Publicaciones</Link>
+          <Link className=' hover:text-[#ec463a]' to='/search'>Publicaciones</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
