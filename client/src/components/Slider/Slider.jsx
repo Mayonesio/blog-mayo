@@ -58,15 +58,19 @@ const Slider = () => {
   };
 
   return (
-    <div className="slider relative w-full h-screen overflow-hidden mt-0" ref={sliderRef}>
+    <div className="slider relative w-full h-screen overflow-hidden mt-0 " ref={sliderRef}>
       <div className="list" ref={listRef}>
         {slides.map((slide) => (
-          <div className="item" key={slide.id}>
+          <div className="item " key={slide.id}>
+             <div class="absolute inset-0 bg-black opacity-20"></div>
             <img src={slide.image} alt={slide.type} />
             <div className="content">
               <div className="title">{slide.title}</div>
               <div className="type">{slide.type}</div>
-              <div className="description">{slide.description}</div>
+              <div className="description text-white p-4">
+                {slide.description}
+              </div>
+
               <div className="button">
                 <Link
                   to='/search'

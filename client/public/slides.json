@@ -16,9 +16,9 @@
     {
       "id": 3,
       "image": "./images/3.jpg",
-      "title": "HATÑO NUEVO",
+      "title": "HATÑO",
       "type": "2022",
-      "description": "Hat en Pozo cañada albacete en invierno"
+      "description": "Hatño nuevo en Pozo cañada albacete en invierno"
     },
     {
       "id": 4,
@@ -44,9 +44,9 @@
     {
       "id": 7,
       "image": "./images/7.jpg",
-      "title": "CALLAFEL ARENA",
+      "title": "CALLAFEL",
       "type": "2021",
-      "description": "Campeonato mixto fun en callafel, post-pandemia."
+      "description": "Callafel arena campeonato mixto fun, post-pandemia."
     }
   ]
   

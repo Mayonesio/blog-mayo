@@ -33,7 +33,6 @@
 //   border-radius: 5px;
 // }
 
-
 .slider {
   height: 100vh;
   margin-top: -50px;
@@ -49,8 +48,13 @@
   inset: 0 0 0 0;
 }
 
-.description{
+.description {
   max-width: 39dvw;
+  background: linear-gradient(
+    to left,
+    rgba(42, 20, 43, 0) 0%,
+    rgba(42, 20, 43, 0.219) 100%
+  );
 }
 .slider .list .item img {
   width: 100%;
@@ -69,10 +73,11 @@
   box-sizing: border-box;
   color: #fff;
   text-shadow: 0 5px 10px #0004;
+  // background: linear-gradient(to left, rgba(42, 20, 43, 0) 0%, rgba(42, 20, 43, 0.219) 100%);
 }
 
 .slider .list .item .content .button {
-color:#2a142b;
+  color: #2a142b;
 }
 .slider .list .item .content .title {
   font-size: 5rem;
@@ -137,7 +142,7 @@ color:#2a142b;
   align-items: center;
 }
 
-.arrowButtons .prev, 
+.arrowButtons .prev,
 .arrowButtons .next {
   display: block;
   position: relative;
@@ -170,7 +175,7 @@ color:#2a142b;
 
 .arrowButtons .prev:after,
 .arrowButtons .next:after {
-  border: 4px solid #FF1414;
+  border: 4px solid #ff1414;
   transform: scale(1.3);
   transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
     transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -227,12 +232,16 @@ color:#2a142b;
 
 .arrowButtons .prev:hover .button-box,
 .arrowButtons .prev:focus .button-box {
-  transform: translateX(56px); /* Movimiento hacia la derecha cuando se pasa el cursor o tiene el foco */
+  transform: translateX(
+    56px
+  ); /* Movimiento hacia la derecha cuando se pasa el cursor o tiene el foco */
 }
 
 .arrowButtons .next:hover .button-box,
 .arrowButtons .next:focus .button-box {
-  transform: translateX(-56px); /* Movimiento hacia la izquierda cuando se pasa el cursor o tiene el foco */
+  transform: translateX(
+    -56px
+  ); /* Movimiento hacia la izquierda cuando se pasa el cursor o tiene el foco */
 }
 
 .arrowButtons .prev:active .button-box,
@@ -247,8 +256,7 @@ color:#2a142b;
 .slider .list .item:nth-child(1) .content .title,
 .slider .list .item:nth-child(1) .content .type,
 .slider .list .item:nth-child(1) .content .description,
-.slider .list .item:nth-child(1) .content .button
-{
+.slider .list .item:nth-child(1) .content .button {
   transform: translateY(50px);
   filter: blur(20px);
   opacity: 0;
@@ -256,25 +264,25 @@ color:#2a142b;
 }
 
 @keyframes showContent {
-  to{
+  to {
     transform: translateY(0px);
     filter: blur(0px);
     opacity: 1;
   }
 }
 
-.slider .list .item:nth-child(1) .content .title{
+.slider .list .item:nth-child(1) .content .title {
   animation-delay: 0.4s !important;
 }
 
-.slider .list .item:nth-child(1) .content .type{
+.slider .list .item:nth-child(1) .content .type {
   animation-delay: 0.6s !important;
 }
 
-.slider .list .item:nth-child(1) .content .description{
+.slider .list .item:nth-child(1) .content .description {
   animation-delay: 0.8s !important;
 }
-.slider .list .item:nth-child(1) .content .button{
+.slider .list .item:nth-child(1) .content .button {
   animation-delay: 1s !important;
 }
 
@@ -289,7 +297,7 @@ color:#2a142b;
 }
 
 @keyframes showImage {
-  to{
+  to {
     bottom: 0;
     left: 0;
     width: 100%;
@@ -315,7 +323,7 @@ color:#2a142b;
 }
 
 .slider.next .thumbnail {
-  animation: effectNext .5s linear 1 forwards;
+  animation: effectNext 0.5s linear 1 forwards;
 }
 
 @keyframes effectNext {
@@ -332,12 +340,11 @@ color:#2a142b;
   position: absolute;
   bottom: 0;
   left: 0;
-    animation: outFrame 0.5s linear 1 forwards;
-
+  animation: outFrame 0.5s linear 1 forwards;
 }
 
 @keyframes outFrame {
-  to{
+  to {
     width: 150px;
     height: 220px;
     bottom: 50px;
@@ -346,27 +353,26 @@ color:#2a142b;
   }
 }
 
-.slider.prev .thumbnail .item:nth-child(1){
+.slider.prev .thumbnail .item:nth-child(1) {
   overflow: hidden;
   opacity: 0;
-  animation: showThumbnail .5s linear 1 forwards;
+  animation: showThumbnail 0.5s linear 1 forwards;
 }
 
 .slider.next .arrowButtons .button,
-.slider.prev .arrowButtons .button{
+.slider.prev .arrowButtons .button {
   pointer-events: none;
 }
 
 .slider.prev .list .item:nth-child(2) .content .title,
 .slider.prev .list .item:nth-child(2) .content .type,
 .slider.prev .list .item:nth-child(2) .content .description,
-.slider.prev .list .item:nth-child(2) .content .button
-{
+.slider.prev .list .item:nth-child(2) .content .button {
   animation: contentOut 1.5s linear 1 forwards !important;
 }
 
 @keyframes contentOut {
-  to{
+  to {
     transform: translateX(-150px);
     filter: blur(20px);
     opacity: 0;
@@ -380,15 +386,15 @@ color:#2a142b;
     gap: 10px;
   }
 
-  a{
+  a {
     font-size: 0.7rem;
   }
 
-  .slider .list .item .content{
+  .slider .list .item .content {
     padding-right: 0;
   }
 
-  .slider .list .item .content .title{
+  .slider .list .item .content .title {
     font-size: 50px;
   }
 }
