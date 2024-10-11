@@ -4,14 +4,14 @@
       "image": "./images/1.jpg",
       "title": "CE - OPEN",
       "type": "2023",
-      "description": "Campeonato de España Open temporada 2023 - 2024"
+      "description": "Campeonato de España Open temporada 2022 - 2023"
     },
     {
       "id": 2,
       "image": "./images/2.jpg",
-      "title": "IMAGE SLIDER",
-      "type": "CAPTAIN AMERICA",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+      "title": " MONTPELLIER ",
+      "type": "VISITA FRANCIA",
+      "description": "En vacaciones también deberiamos buscar un sitio para lanzar, en esta ocasión nos recibieron en el equipoen el que juega mi hermano, una experiencia especial."
     },
     {
       "id": 3,
@@ -23,23 +23,23 @@
     {
       "id": 4,
       "image": "./images/4.jpg",
-      "title": "IMAGE SLIDER",
-      "type": "SPIDER-MAN",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+      "title": "VIRALES",
+      "type": "MAYO VS. MANZANAS",
+      "description": "No importa lo que diga la foto, la toma siguiente es un brake de Manzanas, a pesar de lo espectacular, el esfuerzzo fue en vano."
     },
     {
       "id": 5,
-      "image": "./images/5.jpg",
-      "title": "IMAGE SLIDER",
-      "type": "SPIDER-MAN",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+      "image": "./images/10.jpg",
+      "title": "CE-M 2ª",
+      "type": "SEVILLA",
+      "description": "Campeonato de España mixto segunda división."
     },
     {
       "id": 6,
       "image": "./images/6.jpg",
-      "title": "IMAGE SLIDER",
-      "type": "SPIDER-MAN",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti temporibus quis eum consequuntur voluptate quae doloribus distinctio. Possimus, sed recusandae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, aut."
+      "title": "CE - OPEN 2ª",
+      "type": "LERMA, BURGOS",
+      "description": "Campeonato de España Open segunda división temporada 2024 - 2025"
     },
     {
       "id": 7,
