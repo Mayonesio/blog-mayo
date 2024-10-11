@@ -1,3 +1,8 @@
+
+<div align="center">
+  <img height="auto" width="1240" src="/portada-repositorio.jpg"  />
+</div>
+
 # 🏉 Blog de Ultimate
 
 Una aplicación web fullstack que permite a los usuarios explorar y compartir contenido relacionado con el deporte Ultimate Frisbee. Desarrollada con el stack MERN (MongoDB, Express.js, React.js, Node.js) y mejorada con Firebase para la gestión de usuarios.
